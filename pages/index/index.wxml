@@ -1,0 +1,52 @@
+<!--index.wxml-->
+<navigation-bar title="实时天气" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="search">
+    <input type="text" placeholder="请输入城市名" bindinput="getInput" />
+    <button bindtap="getSearch">搜索</button>
+  </view>
+  <!-- 实时天气 -->
+  <view class="weather">
+    <view class="realtime-name">{{name}}</view>
+    <view class="weather-item">
+      <view class="realtime-left">
+        <view class="weather-icon" wx:if="{{weather.icon}}">
+          <image src="/images/icons/{{weather.icon}}.svg" mode="" />
+        </view>
+      </view>
+      <view class="realtime-right">
+        <view class="realtime-text">{{weather.text}}</view>
+        <view class="weather-temp">{{weather.temp}} ℃</view>
+      </view>
+    </view>
+
+    <view class="weather-other">
+      <view class="other-item">
+        <view class="other-title">{{weather.windDir}}</view>
+        <view class="other-details">{{weather.windScale}}级</view>
+      </view>
+      <view class="other-item">
+        <view class="other-title">体感温度</view>
+        <view class="other-details">{{weather.feelsLike}} ℃</view>
+      </view>
+      <view class="other-item">
+        <view class="other-title">相对湿度</view>
+        <view class="other-details">{{weather.humidity}}%</view>
+      </view>
+      <view class="other-item">
+        <view class="other-title">大气压强</view>
+        <view class="other-details">{{weather.pressure}}hpa</view>
+      </view>
+      <view class="other-item">
+        <view class="other-title">能见度</view>
+        <view class="other-details">{{weather.vis}}公里</view>
+      </view>
+      <view class="other-item">
+        <view class="other-title">云量</view>
+        <view class="other-details">{{weather.cloud}}%</view>
+      </view>
+    </view>
+    <view class="daily">{{daily[0].text}}</view>
+  </view>
+</view>
